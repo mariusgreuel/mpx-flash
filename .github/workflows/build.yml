@@ -1,0 +1,32 @@
+#
+# build.yml
+# Copyright (C) 2018 Marius Greuel.
+#
+
+name: Build
+
+on:
+  push:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: [windows-latest]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+        with:
+          msbuild-architecture: x64
+      - name: Build
+        working-directory: src
+        run: msbuild -p:Configuration=Release
+      - name: Archive binaries
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mpx-flash
+          path: |
+            src/bin/Release/*
