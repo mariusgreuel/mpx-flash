@@ -25,7 +25,7 @@ To display the usage of this tool, run `mpx-flash` from a command-prompt.
 
 ## Downloads
 
-To download a pre-build executable, go to the [releases](https://github.com/rc-hacks/mpx-flash/releases) folder.
+To download a pre-build executable, go to the [releases](https://github.com/mariusgreuel/mpx-flash/releases) folder.
 
 ### Prerequisites
 
